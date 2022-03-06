@@ -35,6 +35,17 @@ return `fire0.gif`;
 }
  
 map.on('load', () => {
+ 
+const layers = map.getStyle().layers;
+// Find the index of the first symbol layer in the map style.
+let firstSymbolId;
+for (const layer of layers) {
+if (layer.type === 'symbol') {
+firstSymbolId = layer.id;
+break;
+}
+}
+ 
 map.addSource('fire', {
 type: 'image',
 url: getPath(),
@@ -50,7 +61,7 @@ map.addLayer({
 id: 'fire-layer',
 'type': 'raster',
 'source': 'fire',
-},housenum-label);
+},firstSymbolId);
  
 });
 

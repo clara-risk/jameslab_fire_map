@@ -24,8 +24,8 @@ const map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/dark-v10',
 maxZoom: 10,
-minZoom: 2,
-zoom: 7,
+minZoom: 1,
+zoom: 2,
 center: [-102,54]
 });
  
@@ -50,9 +50,6 @@ map.addLayer({
 id: 'fire-layer',
 'type': 'raster',
 'source': 'fire',
-'paint': {
-'raster-fade-duration': 0
-}
 });
  
 });
